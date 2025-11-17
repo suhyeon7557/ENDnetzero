@@ -270,6 +270,13 @@
     #Content {
         padding-top: 75px;
     }
+    #content_wrap {
+        padding-bottom: 30px;
+    }
+    #cont_inner {
+        padding: 0 20px;
+        gap: 20px;
+    }
     #nav_wrap::before {
         width: 100px;
         height: 150px;
@@ -286,6 +293,13 @@
 @media (max-width: 768px) {
     #Content {
         padding-top: 60px;
+    }
+    #content_wrap {
+        padding-bottom: 15px;
+    }
+    #cont_inner {
+        padding: 0 15px;
+        gap: 15px;
     }
     #nav_inner {
         padding: 15px 0;
