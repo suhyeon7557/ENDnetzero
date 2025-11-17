@@ -119,6 +119,9 @@
     white-space: nowrap;
     min-width: 0;
 }
+#cont_inner .inner_tabs li a:hover {
+    color: var(--color-brand-blue);
+}
 #cont_inner .inner_tabs li a::before {
     content: "";
     width: 6px;
@@ -184,6 +187,11 @@
     font-size: var(--fs-32);
     font-weight: 700;
 }
+#nav_inner .sub_tabs li a:hover {
+    color: #fff;
+    transition: background-color .2s, color .2s;
+}
+
 #nav_inner .sub_tabs {
     margin-top: 6px;
     display: -webkit-box;

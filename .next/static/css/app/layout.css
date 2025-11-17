@@ -1604,6 +1604,10 @@ html.gnb2-open #side_btn .btn_hamburger {
   min-width: 0;
 }
 
+#cont_inner .inner_tabs li a:hover {
+  color: var(--color-brand-blue);
+}
+
 #cont_inner .inner_tabs li a::before {
   content: "";
   width: 6px;
@@ -1675,6 +1679,11 @@ html.gnb2-open #side_btn .btn_hamburger {
 #nav_inner .sub_title {
   font-size: var(--fs-32);
   font-weight: 700;
+}
+
+#nav_inner .sub_tabs li a:hover {
+  color: #fff;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 #nav_inner .sub_tabs {
