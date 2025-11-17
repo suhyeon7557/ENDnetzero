@@ -41,6 +41,7 @@ export default function SubpagePage() {
                    <li><a href="#">탄소중립 생활 실천도(에너지)</a></li>
                  </ul>
                </div>
+                <h2 className="cont_title">재생에너지 비중</h2>
                <div className="tab_content"></div>
             </div>
         </div>

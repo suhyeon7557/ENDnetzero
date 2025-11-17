@@ -150,7 +150,23 @@
     background: var(--color-brand-blue);
     border-radius: 3px;
 }
-
+#cont_inner h2.cont_title {
+    font-size: var(--fs-24);
+    font-weight: 700;
+}
+#cont_inner h2.cont_title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#cont_inner h2.cont_title:before {
+    content: '';
+    width: 30px;
+    height: 23px;
+    display: block;
+    background: url('/images/ic_txt.svg') no-repeat center center;
+    background-size: contain;
+}
 /* Subpage visual area */
 #nav_inner .visual {
     position: relative;
@@ -206,8 +222,12 @@
     flex-wrap: nowrap;
     max-width: 100%;
 }
-#nav_inner .sub_tabs li { flex: 0 0 auto; }
-#nav_inner .sub_tabs li a { white-space: nowrap; }
+#nav_inner .sub_tabs li {
+    flex: 0 0 auto;
+}
+#nav_inner .sub_tabs li a {
+    white-space: nowrap;
+}
 #nav_inner .sub_tabs li a {
     display: inline-block;
     padding: 0;
