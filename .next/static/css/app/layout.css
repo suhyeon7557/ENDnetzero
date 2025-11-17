@@ -298,6 +298,7 @@ header, footer, main, section, article, nav, aside {
 :root {
   --color-neutral-700: #444444;
   --color-neutral-500: #999999;
+  --color-neutral-600: #B8B8B8;
   --color-neutral-300: #DBDBDB;
   --color-neutral-100: #f2f2f2;
   --color-mint-50: #F8FFF0;
@@ -1482,15 +1483,27 @@ html.gnb2-open #side_btn .btn_hamburger {
   position: relative;
 }
 
-/* When no tabs are present under the visual, use compact vertical padding */
-#nav_inner:not(:has(.sub_tabs)) {
-  padding: 45px 0;
+#nav_wrap:has(#nav_inner:not(:has(.sub_tabs)))::before {
+  width: 96px;
+  height: 136px;
 }
 
+#nav_wrap:has(#nav_inner:not(:has(.sub_tabs))):after {
+  width: 104px;
+  height: 112px;
+}
+
+/* When no tabs are present under the visual, use compact vertical padding */
+#nav_inner:not(:has(.sub_tabs)) {
+  padding: 30px 0;
+}
+
+/* compact nav: shrink decorations (placed at end to override previous and media rules) */
 #content_wrap {
   max-width: 1400px;
   margin: 0 auto;
   padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 /* Inner tabs (tabs-inside-content) */
@@ -1556,6 +1569,9 @@ html.gnb2-open #side_btn .btn_hamburger {
 #cont_inner {
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 #cont_inner .inner_tabs {
@@ -1744,6 +1760,9 @@ html.gnb2-open #side_btn .btn_hamburger {
   #cont_inner .inner_tabs ul {
     padding: 0 30px;
   }
+  #cont_inner {
+    padding: 0 30px;
+  }
 }
 @media (max-width: 1200px) {
   #nav_inner .visual_decoration.right {
@@ -1880,6 +1899,7 @@ html.gnb2-open #side_btn .btn_hamburger {
 
 .SearchPage .sr-summary {
   text-align: center;
+  gap: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -1889,20 +1909,13 @@ html.gnb2-open #side_btn .btn_hamburger {
 }
 
 .SearchPage .sr-tabs {
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .SearchPage .sr-tabs li {
   flex: 0 0 auto;
-  min-width: 250px;
 }
 
 .SearchPage .sr-tabs a {
@@ -1931,7 +1944,6 @@ html.gnb2-open #side_btn .btn_hamburger {
   height: 2px;
   background: var(--color-brand-blue);
   border-radius: 2px;
-  /* 아래 선이 버튼 글씨 너비만큼 나오도록 */
   max-width: 90%;
   margin: 0 auto;
   right: 0;
@@ -2148,18 +2160,6 @@ html.gnb2-open #side_btn .btn_hamburger {
   color: var(--sr-blue);
 }
 
-.SearchPage .sr-tabs {
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 .SearchPage .sr-tabs li {
   flex: 0 0 auto;
   min-width: 250px;
@@ -2232,7 +2232,6 @@ html.gnb2-open #side_btn .btn_hamburger {
   position: relative;
   padding: 25px 0;
   font-size: var(--fs-16);
-  border-top: 1px solid var(--color-neutral-600);
 }
 
 .SearchPage .sr-list > li a {

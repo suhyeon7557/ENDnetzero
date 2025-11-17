@@ -139,9 +139,9 @@ export default function SearchPage() {
                       <ol className="breadcrumb">
                         <li><a href="/"><img src="/images/ic_home_black.svg" alt="홈" /></a></li>
                         <li aria-hidden="true">›</li>
-                        <li><a href="#" tabIndex={-1}>시민실천</a></li>
+                        <li><a href="#" tabIndex={-1}>소통하기</a></li>
                         <li aria-hidden="true">›</li>
-                        <li><a href="#" tabIndex={-1}>참여모집</a></li>
+                        <li><a href="#" tabIndex={-1}>공지사항</a></li>
                       </ol>
                     </nav>
                 </a>
@@ -153,9 +153,9 @@ export default function SearchPage() {
                       <ol className="breadcrumb">
                         <li><a href="/"><img src="/images/ic_home_black.svg" alt="홈" /></a></li>
                         <li aria-hidden="true">›</li>
-                        <li><a href="#" tabIndex={-1}>정책자료</a></li>
+                        <li><a href="#" tabIndex={-1}>소통하기</a></li>
                         <li aria-hidden="true">›</li>
-                        <li><a href="#" tabIndex={-1}>공지/행사</a></li>
+                        <li><a href="#" tabIndex={-1}>연구보고서</a></li>
                       </ol>
                     </nav>
                 </a>
