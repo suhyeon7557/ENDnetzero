@@ -281,6 +281,7 @@ header, footer, main, section, article, nav, aside {
   --fs-16: 0.85rem;
   --fs-18: 1rem;
   --fs-20: 1.2rem;
+  --fs-24: 1.3rem;
   --fs-32: 1.5rem;
   --fs-36: 2rem;
   --fs-48: 2.5rem;
@@ -1466,6 +1467,7 @@ html.gnb2-open #side_btn .btn_hamburger {
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/common.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
 #Content {
   position: relative;
   width: 100%;
@@ -1785,6 +1787,103 @@ html.gnb2-open #side_btn .btn_hamburger {
   background-size: contain;
 }
 
+/* Popup (공통) */
+#popup_overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  z-index: 1000;
+}
+
+#popup_overlay.is-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.popup_modal {
+  width: min(800px, 92vw);
+  border-radius: 16px;
+  background: #fff;
+  -webkit-box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  position: relative;
+}
+
+.popup_header {
+  background: var(--color-forest-green);
+  color: #fff;
+  text-align: center;
+  padding: 13px 50px;
+  position: relative;
+}
+
+#popup_title {
+  font-weight: 700;
+  font-size: var(--fs-20);
+}
+
+.popup_close {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background: var(--color-forest-green);
+  color: #23861C;
+  font-size: var(--fs-36);
+  background-color: #fff;
+  line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.popup_close:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.popup_body {
+  background: #fff;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+}
+
+.popup_list {
+  list-style: disc;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+.popup_list li {
+  font-size: var(--fs-18);
+}
+
 @media (max-width: 1400px) {
   #cont_inner .inner_tabs ul {
     padding: 0 30px;
@@ -1819,6 +1918,10 @@ html.gnb2-open #side_btn .btn_hamburger {
     width: 105px;
     height: 110px;
     right: 30px;
+  }
+  .popup_close {
+    width: 30px;
+    height: 30px;
   }
 }
 @media (max-width: 768px) {
@@ -1867,6 +1970,16 @@ html.gnb2-open #side_btn .btn_hamburger {
   #cont_inner .inner_tabs ul {
     gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  .popup_close {
+    width: 23px;
+    height: 23px;
+  }
+  .popup_header {
+    padding: 5px 40px;
+  }
+  .popup_body {
+    padding: 10px;
   }
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
