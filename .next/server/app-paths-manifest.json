@@ -1,4 +1,4 @@
 {
-  "/subpage/page": "app/subpage/page.js",
-  "/promise/page": "app/promise/page.js"
+  "/promise/page": "app/promise/page.js",
+  "/subpage/page": "app/subpage/page.js"
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type React from "react";
 import Image from "next/image";
 
@@ -86,6 +86,8 @@ export default function PromisePage() {
   const [people, setPeople] = useState<number>(BASE_PEOPLE_COUNT);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [animatedPeople, setAnimatedPeople] = useState<number>(BASE_PEOPLE_COUNT);
+  const prevPeopleRef = useRef<number>(BASE_PEOPLE_COUNT);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -97,6 +99,32 @@ export default function PromisePage() {
       window.localStorage.setItem(STORAGE_KEY, String(BASE_PEOPLE_COUNT));
     }
   }, []);
+
+  // people 변경 시 숫자 카운트 애니메이션
+  useEffect(() => {
+    const start = prevPeopleRef.current;
+    const end = people;
+    if (start === end) return;
+
+    const durationMs = 700;
+    const startTs = performance.now();
+    let rafId = 0;
+
+    const step = (now: number) => {
+      const t = Math.min(1, (now - startTs) / durationMs);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.round(start + (end - start) * eased);
+      setAnimatedPeople(value);
+      if (t < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        prevPeopleRef.current = end;
+      }
+    };
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [people]);
 
   const toggleCheck = (id: number) => {
     setChecked(prev => {
@@ -192,7 +220,7 @@ export default function PromisePage() {
         <div id="content_wrap" aria-label="콘텐츠 영역">
           <div id="cont_inner">
           <p className="promise_total">
-                  지금까지 <strong><em>{people}</em></strong>명이 탄소중립 실천을
+                  지금까지 <strong><em>{animatedPeople}</em></strong>명이 탄소중립 실천을
                   약속해주셨습니다.
                 </p>
                 <div className="guide_box" role="note">
