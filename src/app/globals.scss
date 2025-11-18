@@ -14,6 +14,23 @@ header, footer, main, section, article, nav, aside {
   outline-offset: 2px;
 }
 
+.txt_blue {
+  color: var(--color-brand-blue);
+}
+
+.txt_green {
+  color: var(--color-forest-green);
+}
+.txt_orange {
+  color: var(--color-accent-orange);
+}
+.txt_purple {
+  color: var(--color-accent-purple);
+}
+.txt_yellow {
+  color: var(--color-sun-yellow);
+}
+
 /* REM 설정: 기본 1rem = 18px */
 :root {
   font-size: 18px;
@@ -155,31 +172,28 @@ body {
   border: 0;
 }
 
-/* Global scrollbar styling (light theme aligned, accent: #B9E300) */
+/* Global scrollbar - simple custom (forest green: #23861C) */
 * {
-	scrollbar-width: thin; /* Firefox */
-	scrollbar-color: #8F7D65 #e9ece3; /* thumb track */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--color-forest-green) #f2f2f2; /* thumb track */
 }
-
-/* WebKit-based browsers */
+/* WebKit */
 ::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-	background: #e9ece3;
-	border-radius: 8px;
+  background: #f2f2f2;
 }
 ::-webkit-scrollbar-thumb {
-	background-color: #8F7D65;
-	border-radius: 8px;
-	border: 2px solid #e9ece3; /* creates padding around thumb */
+  background-color: var(--color-forest-green);
+  border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background-color: #7A6B52;
+  background-color: #1c6b17; /* darker hover */
 }
 ::-webkit-scrollbar-corner {
-	background: #e9ece3;
+  background: #f2f2f2;
 }
 
 /* 3. 모든 요소가 부모 스타일을 상속받도록 설정 */
@@ -216,6 +230,56 @@ button, input, textarea, select {
     background-color: transparent;
     outline: none;
 }
+/* 공통 폼 스타일 (입력/셀렉트/체크박스) */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid var(--color-neutral-300);
+  background: #fff;
+  color: #000;
+  border-radius: 7px;
+  padding: 10px 12px;
+  height: 42px;
+}
+textarea {
+  min-height: 90px;
+  height: auto;
+  resize: vertical;
+}
+/* 커스텀 체크박스 (공통) */
+/* 시각적으로 숨긴 체크박스(.visually-hidden)는 제외 */
+input[type="checkbox"]:not(.visually-hidden) {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 5px;
+  background: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+input[type="checkbox"]:not(.visually-hidden):checked {
+  background-color: var(--color-brand-blue);
+  border-color: var(--color-brand-blue);
+}
+input[type="checkbox"]:not(.visually-hidden):checked::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 6px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
 button {
   cursor: pointer;
 }
@@ -223,10 +287,43 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-image: url('/images/ic_arrow_gray.svg');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  padding-right: 36px;
+}
+
+/* 회전 가능한 공통 셀렉트 래퍼 */
+.select_wrap {
+  position: relative;
+  display: block;
+}
+.select_wrap select {
+  padding-right: 40px;
+  background-image: none !important; /* 래퍼 사용 시 내부 배경 제거 */
+}
+.select_wrap::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: url('/images/ic_arrow_gray.svg') no-repeat center/contain;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform .2s ease;
+  pointer-events: none;
+}
+.select_wrap.is-open::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 /* outline: none 사용 시 시각적 포커스 스타일을 제공하여 웹 접근성 보완 */
-input:focus, button:focus, textarea:focus {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+/* 포커스 시 기본 하이라이트 제거 (접근성 고려: 디자인 내 별도 처리 시) */
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--color-neutral-300);
 }
 
 img, video, iframe {

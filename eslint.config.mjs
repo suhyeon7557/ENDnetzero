@@ -10,6 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // 빌드 산출물/외부 디렉터리는 린트 제외
+  {
+    ignores: ["**/.next/**", "**/node_modules/**", "**/dist/**", "**/out/**"],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 

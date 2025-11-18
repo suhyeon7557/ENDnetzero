@@ -5,6 +5,7 @@ import "../layout/header.scss";
 import "../layout/footer.scss";
 import "../layout/common.scss";
 import "../layout/search.scss";
+import "../layout/promise.scss";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 

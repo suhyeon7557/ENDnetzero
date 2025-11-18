@@ -1,3 +1,4 @@
 {
-  "/popup/page": "app/popup/page.js"
+  "/subpage/page": "app/subpage/page.js",
+  "/promise/page": "app/promise/page.js"
 }
