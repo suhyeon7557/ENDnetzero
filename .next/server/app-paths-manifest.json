@@ -1,4 +1,3 @@
 {
-  "/promise/page": "app/promise/page.js",
-  "/subpage/page": "app/subpage/page.js"
+  "/history/page": "app/history/page.js"
 }

@@ -283,6 +283,27 @@ input[type="checkbox"]:not(.visually-hidden):checked::after {
 button {
   cursor: pointer;
 }
+
+/* 공통: 더보기/검색 등 작은 정사각 버튼 */
+.btn_more {
+  width: 25px;
+  height: 25px;
+  background-color: #444;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+}
+.btn_more::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url('/images/ic_search_white.svg') no-repeat center / contain;
+  display: block;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;

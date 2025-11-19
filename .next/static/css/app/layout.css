@@ -244,6 +244,9 @@ body {
   }
 }
 @layer utilities {
+  .hidden {
+    display: none;
+  }
   .min-h-dvh {
     min-height: 100dvh;
   }
@@ -514,6 +517,25 @@ input[type=checkbox]:not(.visually-hidden):checked::after {
 button {
   cursor: pointer;
 }
+.btn_more {
+  width: 25px;
+  height: 25px;
+  background-color: #444;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+}
+.btn_more::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url("/images/ic_search_white.svg") no-repeat center/contain;
+  display: block;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -676,7 +698,7 @@ main {
 #header {
   position: fixed;
   left: 50%;
-  z-index: 10;
+  z-index: 99;
   width: 100%;
   transform: translate(-50%);
   background-color: #fff;
@@ -1864,7 +1886,7 @@ html.gnb2-open #side_btn .btn_hamburger {
   z-index: 5;
   left: 70px;
   bottom: -57px;
-  background-image: url("/images/image_sub_person.svg");
+  background-image: url("/images/image_sub_person.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1877,7 +1899,7 @@ html.gnb2-open #side_btn .btn_hamburger {
   z-index: 5;
   right: 70px;
   bottom: 0;
-  background-image: url("/images/image_windmill.svg");
+  background-image: url("/images/image_windmill.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -2777,3 +2799,276 @@ html.gnb2-open #side_btn .btn_hamburger {
     height: 30px;
   }
 }
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/history.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.History .history_wrap {
+  position: relative;
+  width: 100%;
+  min-height: 1200px;
+  overflow: visible;
+}
+
+.History .timeline {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1600px, 100vw);
+  height: 1100px;
+  background: url("/images/image_history02.png") no-repeat center 60px;
+}
+
+.History #panel-korea .timeline {
+  background: url("/images/image_history04.png") no-repeat center 60px;
+}
+
+.History #panel-gwangju .timeline {
+  background: url("/images/image_history02.png") no-repeat center 60px;
+}
+
+.History .event {
+  position: absolute;
+  color: #000;
+}
+
+.History .event .year {
+  font-size: var(--fs-24);
+}
+
+.History .event .bullets {
+  display: grid;
+  gap: 4px;
+  font-size: var(--fs-18);
+}
+
+.History .event .bullets .txt_blue {
+  font-weight: 700;
+}
+
+.History span.year_num {
+  color: var(--color-forest-green);
+  font-weight: 700;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+/* 국제사회 */
+.History .e1980 {
+  top: 0;
+  left: 0;
+}
+
+.History .e1988 {
+  top: 0;
+  left: 560px;
+}
+
+.History .e1992 {
+  top: 150px;
+  right: 160px;
+}
+
+.History .e1995 {
+  top: 250px;
+  right: 0;
+}
+
+.History .e1997 {
+  top: 400px;
+  left: 600px;
+}
+
+.History .e2007 {
+  top: 400px;
+  left: 0;
+}
+
+.History .e2009 {
+  bottom: 530px;
+  left: 0;
+}
+
+.History .e2015 {
+  bottom: 530px;
+  right: 200px;
+}
+
+.History .e2018 {
+  bottom: 280px;
+  right: 0;
+}
+
+.History .e2020 {
+  bottom: 200px;
+  right: 530px;
+}
+
+.History .e2021 {
+  bottom: 100px;
+  left: 0;
+}
+
+/* 우리나라 */
+.History .k2009 {
+  top: 20px;
+  left: 20px;
+}
+
+.History .k2010 {
+  top: 20px;
+  right: 450px;
+}
+
+.History .k2011 {
+  top: 60px;
+  right: 150px;
+}
+
+.History .k2012 {
+  top: 200px;
+  right: 30px;
+}
+
+.History .k2014 {
+  top: 330px;
+  right: 150px;
+}
+
+.History .k2015 {
+  top: 420px;
+  right: 100px;
+}
+
+.History .k2016 {
+  top: 420px;
+  left: 30px;
+}
+
+.History .k2018 {
+  bottom: 500px;
+  left: 0;
+}
+
+.History .k2019 {
+  bottom: 500px;
+  left: 480px;
+}
+
+.History .k2020 {
+  bottom: 400px;
+  right: 0;
+}
+
+.History .k2021 {
+  bottom: 200px;
+  right: 0;
+}
+
+.History .k2023 {
+  bottom: 150px;
+  left: 370px;
+}
+
+.History .k2025 {
+  bottom: 115px;
+  left: 0;
+}
+
+/* 광주광역시 */
+.History .g2010 {
+  top: 0;
+  left: 20px;
+}
+
+.History .g2012 {
+  top: 0;
+  left: 500px;
+}
+
+.History .g2015 {
+  top: 200px;
+  right: 100px;
+}
+
+.History .g2016 {
+  top: 400px;
+  left: 500px;
+}
+
+.History .g2017 {
+  top: 420px;
+  left: 20px;
+}
+
+.History .g2018 {
+  bottom: 550px;
+  left: 0;
+}
+
+.History .g2020 {
+  bottom: 550px;
+  right: 550px;
+}
+
+.History .g2021 {
+  bottom: 550px;
+  right: 0;
+}
+
+.History .g2022 {
+  bottom: 230px;
+  right: 200px;
+}
+
+.History .g2024 {
+  bottom: 190px;
+  left: 100px;
+}
+
+.event-group-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+@media (max-width: 1400px) {
+  .History .k2023 {
+    left: 330px;
+  }
+  .History .g2020 {
+    right: 400px;
+  }
+}
+@media (max-width: 1200px) {
+  .History .timeline {
+    display: none;
+  }
+  .History .history_wrap {
+    min-height: auto;
+  }
+  .History .event {
+    position: static;
+    max-width: none;
+    background: #fff;
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  .History .history_wrap {
+    display: grid;
+    gap: 12px;
+  }
+  .History .timeline {
+    height: 900px;
+  }
+  .History .event {
+    font-size: var(--fs-18);
+  }
+}
+/* 팝업 오버레이는 공통(#popup_overlay) 스타일을 사용합니다. */
