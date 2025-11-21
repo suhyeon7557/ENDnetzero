@@ -17,6 +17,9 @@ header, footer, main, section, article, nav, aside {
 .txt_blue {
   color: var(--color-brand-blue);
 }
+.txt_red {
+  color: var(--color-red);
+}
 .txt_green {
   color: var(--color-forest-green);
 }
@@ -283,13 +286,7 @@ button {
   cursor: pointer;
 }
 
-.section_head .dot {
-  width: 8px;
-  height: 20px;
-  border-radius: 3px;
-  background: var(--color-lime-green);
-  flex: 0 0 auto;
-}
+
 /* 공통: 더보기/검색 등 작은 정사각 버튼 */
 .btn_more {
   width: 25px;

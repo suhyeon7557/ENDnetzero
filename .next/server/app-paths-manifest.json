@@ -1,4 +1,5 @@
 {
   "/climate/page": "app/climate/page.js",
+  "/carbon/page": "app/carbon/page.js",
   "/subpage/page": "app/subpage/page.js"
 }

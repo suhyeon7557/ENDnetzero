@@ -290,6 +290,9 @@ header, footer, main, section, article, nav, aside {
 .txt_blue {
   color: var(--color-brand-blue);
 }
+.txt_red {
+  color: var(--color-red);
+}
 .txt_green {
   color: var(--color-forest-green);
 }
@@ -520,13 +523,6 @@ input[type=checkbox]:not(.visually-hidden):checked::after {
 }
 button {
   cursor: pointer;
-}
-.section_head .dot {
-  width: 8px;
-  height: 20px;
-  border-radius: 3px;
-  background: var(--color-lime-green);
-  flex: 0 0 auto;
 }
 .btn_more {
   width: 25px;
@@ -3253,5 +3249,38 @@ html.gnb2-open #side_btn .btn_hamburger {
   }
   .Climate .card_grid {
     gap: 10px;
+  }
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/carbon.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CarbonNeutral .intro .txt_red,
+.CarbonNeutral .intro .txt_blue {
+  font-weight: 700;
+  font-size: var(--fs-20);
+}
+
+.CarbonNeutral .carbon_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.CarbonNeutral .carbon_img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .CarbonNeutral .carbon_img img {
+    max-width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .CarbonNeutral .carbon_img img {
+    max-width: 100%;
   }
 }

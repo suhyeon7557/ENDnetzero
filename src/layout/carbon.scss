@@ -1,0 +1,32 @@
+.CarbonNeutral .intro .txt_red,
+.CarbonNeutral .intro .txt_blue {
+  font-weight: 700;
+  font-size: var(--fs-20);
+}
+
+.CarbonNeutral .carbon_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.CarbonNeutral .carbon_img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// 반응형: viewport가 줄어들 때 이미지 최대 너비 조정
+@media (max-width: 1024px) {
+  .CarbonNeutral .carbon_img img {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .CarbonNeutral .carbon_img img {
+    max-width: 100%;
+  }
+}
