@@ -36,8 +36,15 @@ export default function SubpagePage() {
       const li = a.parentElement as HTMLLIElement;
       const all = document.querySelectorAll<HTMLLIElement>(".sub_tabs li");
       setActive(all, li);
-        const sectionName = a.textContent?.trim() || "";
-        showInnerFor(sectionName);
+      const sectionName = a.textContent?.trim() || "";
+      // 상단 탭 선택 시 해당 섹션의 내부 탭 및 컨텐츠 패널 표시
+      showInnerFor(sectionName);
+      const order = ["전환","건물","수송","농·축산","폐기물","산업","흡수원"];
+      const idx = Math.max(0, order.indexOf(sectionName));
+      const allPanels = Array.from(document.querySelectorAll<HTMLElement>("#cont_inner .tab_content"));
+      allPanels.forEach(p => { p.classList.remove("is-active"); p.setAttribute("hidden",""); });
+      const targetPanel = document.getElementById(`content_${String(idx+1).padStart(2,'0')}`);
+      if (targetPanel) { targetPanel.classList.add("is-active"); targetPanel.removeAttribute("hidden"); }
       contentWrap?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
@@ -198,9 +205,29 @@ export default function SubpagePage() {
                 </ul>
               </div>
 
-              {/* 내부 탭 - 주요사업 */}
-                <h2 className="cont_title">재생에너지 비중</h2>
-               <div className="tab_content"></div>
+              {/* 컨텐츠 영역 타이틀 및 패널 자리 */}
+              <h2 className="cont_title">재생에너지 비중</h2>
+              <div id="content_01" className="tab_content is-active" aria-label="전환 부문 탭 영역" role="tabpanel">
+                {/* 전환 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_02" className="tab_content" aria-label="건물 부문 탭 영역" role="tabpanel" hidden>
+                {/* 건물 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_03" className="tab_content" aria-label="수송 부문 탭 영역" role="tabpanel" hidden>
+                {/* 수송 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_04" className="tab_content" aria-label="농·축산 부문 탭 영역" role="tabpanel" hidden>
+                {/* 농·축산 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_05" className="tab_content" aria-label="폐기물 부문 탭 영역" role="tabpanel" hidden>
+                {/* 폐기물 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_06" className="tab_content" aria-label="산업 부문 탭 영역" role="tabpanel" hidden>
+                {/* 산업 컨텐츠 영역 (작성 예정) */}
+              </div>
+              <div id="content_07" className="tab_content" aria-label="흡수원 부문 탭 영역" role="tabpanel" hidden>
+                {/* 흡수원 컨텐츠 영역 (작성 예정) */}
+              </div>
             </div>
         </div>
     </div>
