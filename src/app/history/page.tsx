@@ -407,13 +407,6 @@ export default function HistoryPage() {
         </div>
       </div>
 
-                <article className="event g2025" aria-label="2020">
-                  <h3 className="year"> <span className="year_num">2020</span></h3>
-                  <ul className="bullets">
-                    <li>· 제4차 광주광역시 기후변화 적응대책 수립</li>
-                  </ul>
-                </article>
-
 
       {/* 히스토리 팝업 오버레이 (공통 디자인 재사용) */}
       <div id="popup_overlay" aria-hidden="true">

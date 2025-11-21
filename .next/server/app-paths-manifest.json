@@ -1,3 +1,4 @@
 {
-  "/history/page": "app/history/page.js"
+  "/climate/page": "app/climate/page.js",
+  "/subpage/page": "app/subpage/page.js"
 }

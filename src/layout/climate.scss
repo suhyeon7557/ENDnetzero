@@ -1,0 +1,128 @@
+.Climate .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Climate .section_head {
+  display: flex;
+  gap: 10px;
+  font-weight: 700;
+}
+.Climate .section_title {
+  font-size: var(--fs-20);
+  font-weight: 800;
+}
+.Climate .desc_list {
+  display: grid;
+  gap: 6px;
+  font-size: var(--fs-18);
+}
+.Climate .note span {
+    font-weight: 700;
+    color: var(--color-red);
+    font-size: var(--fs-20);
+}
+.Climate .ozone_fig img {
+  justify-self: center;
+  height: auto;
+  display: block;
+}
+.Climate .card_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.Climate .card {
+  background: #fff;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.Climate .card_head {
+  background: var(--color-accent-orange);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: var(--fs-20);
+}
+.Climate .card_body {
+  padding: 20px;
+  display: grid;
+  gap: 15px;
+  grid-template-rows: auto auto; 
+  align-items: start;
+}
+.Climate .card .thumb {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.Climate .card .thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;      
+  display: block;
+}
+.Climate .bullets {     
+  display: grid;
+  margin-left: 50px;
+  align-items: center;
+}
+.Climate .bullets li {
+    font-size: var(--fs-20);
+}
+.Climate .card-wide .card_body {
+  grid-template-rows: auto auto;
+}
+.Climate .card-wide {
+  grid-column: 1 / -1;
+}
+.Climate .ozone_note_group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px
+}
+/* 1024px: 카드 3열 → 줄바꿈 시 두 번째 줄로 배치, 이미지/여백 축소 */
+@media (max-width: 1024px) {
+  .Climate .card_grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Climate .card_body {
+    padding: 15px;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .Climate .card-wide .card_body {
+    grid-template-rows: auto auto;
+  }
+  .Climate .bullets {
+    margin: 0;
+  }
+}
+
+/* 768px: 카드 2열, 이미지/여백 추가 축소 */
+@media (max-width: 768px) {
+  .Climate .card_body {
+    padding: 12px;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .Climate .card-wide .card_body {
+    grid-template-rows: auto auto;
+  }
+  .Climate .section {
+    gap: 10px;
+  }
+  .Climate .card_head {
+    padding: 5px;
+  }
+  .Climate .card_grid {
+    gap: 10px;
+  }
+}
+
+

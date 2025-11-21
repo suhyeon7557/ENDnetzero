@@ -244,6 +244,9 @@ body {
   }
 }
 @layer utilities {
+  .block {
+    display: block;
+  }
   .hidden {
     display: none;
   }
@@ -312,10 +315,11 @@ header, footer, main, section, article, nav, aside {
 :root {
   --color-brand-blue: #0172FF;
   --color-forest-green: #23861C;
+  --color-red: #F2082F;
   --color-accent-orange: #FF9500;
   --color-accent-purple: #A100FF;
   --color-sun-yellow: #FFCE31;
-  --color-lime-green: #82CE33;
+  --color-lime-green: #00FF08;
   --color-cream-yellow: #FFDF91;
   --color-white: #FFFFFF;
 }
@@ -516,6 +520,13 @@ input[type=checkbox]:not(.visually-hidden):checked::after {
 }
 button {
   cursor: pointer;
+}
+.section_head .dot {
+  width: 8px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--color-lime-green);
+  flex: 0 0 auto;
 }
 .btn_more {
   width: 25px;
@@ -1693,16 +1704,32 @@ html.gnb2-open #side_btn .btn_hamburger {
   gap: 30px;
 }
 
+#cont_inner .cont_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
 #cont_inner .inner_tabs {
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
 #cont_inner .inner_tabs ul {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  white-space: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 #cont_inner .inner_tabs li {
@@ -1759,24 +1786,34 @@ html.gnb2-open #side_btn .btn_hamburger {
   border-radius: 3px;
 }
 
-#cont_inner h2.cont_title {
+#cont_inner .cont_title {
   font-size: var(--fs-24);
   font-weight: 700;
 }
 
-#cont_inner h2.cont_title {
+#cont_inner .cont_title {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-#cont_inner h2.cont_title:before {
+#cont_inner .cont_title:before {
   content: "";
   width: 30px;
   height: 23px;
   display: block;
   background: url("/images/ic_txt.svg") no-repeat center center;
   background-size: contain;
+}
+
+#cont_inner .dot {
+  display: inline-block;
+  margin-right: 5px;
+  width: 8px;
+  height: 15px;
+  border-radius: 3px;
+  background: var(--color-lime-green);
+  flex: 0 0 auto;
 }
 
 /* Subpage visual area */
@@ -3072,3 +3109,149 @@ html.gnb2-open #side_btn .btn_hamburger {
   }
 }
 /* 팝업 오버레이는 공통(#popup_overlay) 스타일을 사용합니다. */
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/climate.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.Climate .section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Climate .section_head {
+  display: flex;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.Climate .section_title {
+  font-size: var(--fs-20);
+  font-weight: 800;
+}
+
+.Climate .desc_list {
+  display: grid;
+  gap: 6px;
+  font-size: var(--fs-18);
+}
+
+.Climate .note span {
+  font-weight: 700;
+  color: var(--color-red);
+  font-size: var(--fs-20);
+}
+
+.Climate .ozone_fig img {
+  justify-self: center;
+  height: auto;
+  display: block;
+}
+
+.Climate .card_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.Climate .card {
+  background: #fff;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.Climate .card_head {
+  background: var(--color-accent-orange);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: var(--fs-20);
+}
+
+.Climate .card_body {
+  padding: 20px;
+  display: grid;
+  gap: 15px;
+  grid-template-rows: auto auto;
+  align-items: start;
+}
+
+.Climate .card .thumb {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.Climate .card .thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.Climate .bullets {
+  display: grid;
+  margin-left: 50px;
+  align-items: center;
+}
+
+.Climate .bullets li {
+  font-size: var(--fs-20);
+}
+
+.Climate .card-wide .card_body {
+  grid-template-rows: auto auto;
+}
+
+.Climate .card-wide {
+  grid-column: 1/-1;
+}
+
+.Climate .ozone_note_group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 1024px: 카드 3열 → 줄바꿈 시 두 번째 줄로 배치, 이미지/여백 축소 */
+@media (max-width: 1024px) {
+  .Climate .card_grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Climate .card_body {
+    padding: 15px;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .Climate .card-wide .card_body {
+    grid-template-rows: auto auto;
+  }
+  .Climate .bullets {
+    margin: 0;
+  }
+}
+/* 768px: 카드 2열, 이미지/여백 추가 축소 */
+@media (max-width: 768px) {
+  .Climate .card_body {
+    padding: 12px;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .Climate .card-wide .card_body {
+    grid-template-rows: auto auto;
+  }
+  .Climate .section {
+    gap: 10px;
+  }
+  .Climate .card_head {
+    padding: 5px;
+  }
+  .Climate .card_grid {
+    gap: 10px;
+  }
+}

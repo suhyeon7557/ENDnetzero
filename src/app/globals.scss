@@ -17,7 +17,6 @@ header, footer, main, section, article, nav, aside {
 .txt_blue {
   color: var(--color-brand-blue);
 }
-
 .txt_green {
   color: var(--color-forest-green);
 }
@@ -47,10 +46,11 @@ header, footer, main, section, article, nav, aside {
   /* Point colors */
   --color-brand-blue: #0172FF;   /* 0172FF */
   --color-forest-green: #23861C; /* 23861C */
+  --color-red: #F2082F; /* F2082F */
   --color-accent-orange: #FF9500;/* FF9500 */
   --color-accent-purple: #A100FF;/* A100FF */
   --color-sun-yellow: #FFCE31;   /* FFCE31 */
-  --color-lime-green: #82CE33;   /* 82CE33 */
+  --color-lime-green: #00FF08;   /* 82CE33 */
   --color-cream-yellow: #FFDF91; /* FFDF91 */
   --color-white: #FFFFFF;     /* fffff */
 }
@@ -251,7 +251,6 @@ textarea {
   resize: vertical;
 }
 /* 커스텀 체크박스 (공통) */
-/* 시각적으로 숨긴 체크박스(.visually-hidden)는 제외 */
 input[type="checkbox"]:not(.visually-hidden) {
   -webkit-appearance: none;
           appearance: none;
@@ -284,6 +283,13 @@ button {
   cursor: pointer;
 }
 
+.section_head .dot {
+  width: 8px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--color-lime-green);
+  flex: 0 0 auto;
+}
 /* 공통: 더보기/검색 등 작은 정사각 버튼 */
 .btn_more {
   width: 25px;
