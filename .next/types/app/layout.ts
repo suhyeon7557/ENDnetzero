@@ -1,4 +1,4 @@
-// File: C:\Users\User\dev\netzero_new - 복사본\src\app\layout.tsx
+// File: D:\netzero_new\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

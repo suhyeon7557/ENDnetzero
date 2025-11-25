@@ -1,5 +1,4 @@
 {
-  "/climate/page": "app/climate/page.js",
-  "/carbon/page": "app/carbon/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/subpage/page": "app/subpage/page.js"
 }

@@ -1,0 +1,75 @@
+
+.PracticeTasks .task_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.PracticeTasks .task {
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.PracticeTasks .task_link {
+    display: block;
+    color: inherit;
+}
+.PracticeTasks .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.PracticeTasks .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.PracticeTasks .meta {
+    padding: 20px 0 0 0;
+}
+.PracticeTasks .title_row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.PracticeTasks .num {
+  color: #23861C;
+  font-weight: 800;
+  font-size: var(--fs-36);
+}
+.PracticeTasks .title {
+  font-weight: 800;
+  font-size: var(--fs-24);
+}
+.PracticeTasks .desc {
+  color: var(--color-neutral-700);
+  line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+  .PracticeTasks .task_grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+}
+@media (max-width: 1024px) {
+    .PracticeTasks .meta {
+        padding: 10px 0 0 0;
+    }
+  .PracticeTasks .task_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+}
+@media (max-width: 640px) {
+    .PracticeTasks .meta {
+        padding: 5px 0 0 0;
+    }
+  .PracticeTasks .task_grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+}
+
+
