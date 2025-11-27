@@ -3810,8 +3810,17 @@ html.gnb2-open #side_btn .btn_hamburger {
 }
 /* 반응형 - 768px */
 @media (max-width: 768px) {
+  .EmissionMap .emission_left {
+    gap: 10px;
+  }
+  .EmissionMap .stat_box {
+    padding: 10px 15px;
+  }
   .EmissionMap .emission_content {
     padding: 15px;
+  }
+  .EmissionMap .tab_btn {
+    padding: 7px 10px;
   }
   .EmissionMap .emission_layout {
     gap: 20px;
@@ -3826,14 +3835,9 @@ html.gnb2-open #side_btn .btn_hamburger {
   }
   .EmissionMap .download_btn {
     padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-  .EmissionMap .download_btn span {
-    display: none;
   }
   .EmissionMap .download_btn img {
-    width: 20px;
-    height: 20px;
+    display: none;
   }
   .EmissionMap .chart_container {
     min-height: 200px;
@@ -3845,11 +3849,10 @@ html.gnb2-open #side_btn .btn_hamburger {
     grid-template-columns: repeat(2, 1fr);
   }
   .EmissionMap .select_wrap select {
-    height: 42px;
-    font-size: 0.9rem;
+    height: 45px;
   }
   .EmissionMap .district_selects {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 /* 반응형 - 480px */
@@ -3857,6 +3860,9 @@ html.gnb2-open #side_btn .btn_hamburger {
   .EmissionMap .tab_btn {
     padding: 10px 15px;
     font-size: 0.9rem;
+  }
+  .EmissionMap .emission_layout {
+    gap: 10px;
   }
   .EmissionMap .ranking_list {
     grid-template-columns: 1fr 1fr;
