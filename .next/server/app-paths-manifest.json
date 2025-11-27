@@ -1,4 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/subpage/page": "app/subpage/page.js"
+  "/emission-map/page": "app/emission-map/page.js"
 }

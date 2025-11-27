@@ -1,0 +1,496 @@
+/* 행정동별 배출지도 페이지 스타일 */
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.EmissionMap .indicator_select,
+.EmissionMap .indicator_header,
+.EmissionMap .chart_area,
+.EmissionMap .stat_box,
+.EmissionMap .ranking_area {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* 증가/감소 세모 박스 */
+.triangle_up {
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid #EC0647; /* 원하는 색상 */
+}
+.triangle_down {
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #0015FF; /* 원하는 색상 */
+}
+.triangle_down.triangle_skyblue {
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #5D88FD; /* 원하는 색상 */
+}
+
+/* 메인 콘텐츠 박스 */
+.EmissionMap .emission_content {
+  border-radius: 16px;
+  padding: 30px;
+  background: #fffbf5;
+}
+
+
+.EmissionMap .emission_layout {
+  display: flex;
+  gap: 30px;
+}
+
+/* 왼쪽 영역 (6) */
+.EmissionMap .emission_left {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.EmissionMap .emission_right {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 메인 탭 버튼 */
+.EmissionMap .main_tabs {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
+  border-radius: 15px;
+  padding: 4px;
+}
+
+.EmissionMap .tab_btn {
+  flex: 1;
+  padding: 12px 40px;
+  border-radius: 15px;
+  font-weight: 600;
+  color: var(--color-neutral-500);
+  background: transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.EmissionMap .tab_btn:hover {
+  color: var(--color-accent-orange);
+}
+
+.EmissionMap .tab_btn.is-active {
+  background: var(--color-accent-orange);
+  color: #fff;
+}
+
+/* 셀렉트 박스 스타일 */
+.EmissionMap .select_wrap {
+  position: relative;
+}
+
+.EmissionMap .select_wrap select {
+  width: 100%;
+  height: 55px;
+  padding: 0 40px 0 30px;
+  box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
+  border: 0;
+  border-radius: 30px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.EmissionMap .select_wrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: url('/images/ic_arrow_gray.svg') no-repeat center/contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* 구/동 선택 영역 */
+.EmissionMap .district_selects {
+  display: flex;
+  gap: 10px;
+}
+
+.EmissionMap .district_selects .select_wrap {
+  flex: 1;
+}
+
+/* 지표 헤더 */
+.EmissionMap .indicator_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.EmissionMap .indicator_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.EmissionMap .indicator_title .dot {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  border-radius: 3px;
+  background: var(--color-lime-green);
+  flex-shrink: 0;
+}
+
+.EmissionMap .indicator_title h3 {
+  font-size: var(--fs-20);
+  font-weight: 700;
+}
+
+/* 다운로드 버튼 */
+.EmissionMap .download_btns {
+  display: flex;
+  gap: 8px;
+}
+
+.EmissionMap .download_btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 8px;
+  background: #fff;
+  font-size: var(--fs-16);
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.EmissionMap .download_btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.EmissionMap .download_btn:hover {
+  border-color: var(--color-brand-blue);
+  background: rgba(1, 114, 255, 0.05);
+}
+
+/* 차트 영역 */
+.EmissionMap .chart_area {
+  box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+.EmissionMap .chart_unit {
+  text-align: right;
+  font-size: var(--fs-16);
+  color: var(--color-neutral-500);
+  margin-bottom: 10px;
+}
+
+.EmissionMap .chart_container {
+  min-height: 250px;
+  width: 100%;
+}
+
+.EmissionMap .chart_legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.EmissionMap .legend_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-16);
+}
+
+.EmissionMap .legend_dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.EmissionMap .legend_dot.district {
+  background: var(--color-accent-orange);
+}
+
+.EmissionMap .legend_dot.average {
+  background: var(--color-forest-green);
+}
+
+/* 통계 박스 */
+.EmissionMap .stat_box {
+  box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px 20px;
+}
+
+.EmissionMap .stat_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.EmissionMap .stat_label {
+  font-size: var(--fs-18);
+  color: #000;
+}
+
+.EmissionMap .stat_value {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.EmissionMap .stat_value strong {
+  font-size: var(--fs-24);
+  font-weight: 700;
+}
+
+.EmissionMap .stat_value .change_rate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-18);
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.EmissionMap .stat_value .unit {
+  font-size: var(--fs-18);
+  color: var( --color-neutral-500);
+}
+
+/* 지도 영역 */
+.EmissionMap .map_area {
+  flex: 1;
+}
+
+.EmissionMap .map_container {
+  height: 100%;
+  min-height: 350px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* 순위 영역 */
+.EmissionMap .ranking_area {
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
+}
+
+.EmissionMap .ranking_header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.EmissionMap .ranking_header .dot {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  border-radius: 3px;
+  background: var(--color-lime-green);
+  flex-shrink: 0;
+}
+
+.EmissionMap .ranking_header h4 {
+  font-size: var(--fs-20);
+  font-weight: 600;
+}
+
+.EmissionMap .ranking_header h4 strong {
+  font-weight: 700;
+}
+
+.EmissionMap .ranking_list_wrapper {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* 스크롤바 스타일 */
+.EmissionMap .ranking_list_wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.EmissionMap .ranking_list_wrapper::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+  border-radius: 3px;
+}
+
+.EmissionMap .ranking_list_wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-forest-green);
+  border-radius: 3px;
+}
+
+.EmissionMap .ranking_list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.EmissionMap .ranking_column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.EmissionMap .ranking_item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #000;
+}
+
+.EmissionMap .ranking_item .rank_num {
+  min-width: 24px;
+  color: var(--color-neutral-500);
+}
+
+.EmissionMap .ranking_item .rank_dong {
+  color: #000;
+}
+
+.EmissionMap .ranking_item.highlight .rank_num,
+.EmissionMap .ranking_item.highlight .rank_dong {
+  color: var(--color-brand-blue);
+  font-weight: 600;
+}
+
+/* 반응형 - 1200px */
+@media (max-width: 1200px) {
+  .EmissionMap .emission_layout {
+    flex-direction: column;
+  }
+
+  .EmissionMap .emission_left,
+  .EmissionMap .emission_right {
+    flex: none;
+    width: 100%;
+  }
+
+  .EmissionMap .map_container {
+    min-height: 300px;
+  }
+}
+
+/* 반응형 - 1024px */
+@media (max-width: 1024px) {
+  .EmissionMap .emission_content {
+    padding: 20px;
+  }
+
+  .EmissionMap .main_tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .EmissionMap .tab_btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px 20px;
+  }
+}
+
+/* 반응형 - 768px */
+@media (max-width: 768px) {
+  .EmissionMap .emission_content {
+    padding: 15px;
+  }
+
+  .EmissionMap .emission_layout {
+    gap: 20px;
+  }
+
+  .EmissionMap .indicator_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .EmissionMap .download_btns {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .EmissionMap .download_btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .EmissionMap .download_btn span {
+    display: none;
+  }
+
+  .EmissionMap .download_btn img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .EmissionMap .chart_container {
+    min-height: 200px;
+  }
+
+  .EmissionMap .map_container {
+    min-height: 250px;
+  }
+
+  .EmissionMap .ranking_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .EmissionMap .select_wrap select {
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .EmissionMap .district_selects {
+    flex-direction: column;
+  }
+}
+
+/* 반응형 - 480px */
+@media (max-width: 480px) {
+  .EmissionMap .tab_btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .EmissionMap .ranking_list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .EmissionMap .stat_value strong {
+    font-size: var(--fs-20);
+  }
+}

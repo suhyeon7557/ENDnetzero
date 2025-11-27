@@ -10,6 +10,7 @@ import "../layout/history.scss";
 import "../layout/climate.scss";
 import "../layout/carbon.scss";
 import "../layout/practice.scss";
+import "../layout/emission-map.scss";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 
