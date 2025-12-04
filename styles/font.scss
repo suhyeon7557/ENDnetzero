@@ -1,10 +1,11 @@
 /* Font CSS - 웹폰트 정의 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
-/* DS-Digital 폰트 (숫자용) */
+/* DS-Digital 폰트 (숫자용) - DSEG7 Classic */
 @font-face {
     font-family: 'DS-Digital';
-    src: url('data:font/truetype;charset=utf-8;base64,') format('truetype');
+    src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

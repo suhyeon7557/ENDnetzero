@@ -32,7 +32,6 @@ header, footer, main, section, article, nav, aside {
 .txt_yellow {
   color: var(--color-sun-yellow);
 }
-
 /* REM 설정: 기본 1rem = 18px */
 :root {
   font-size: 18px;
@@ -53,6 +52,7 @@ header, footer, main, section, article, nav, aside {
   --color-accent-orange: #FF9500;/* FF9500 */
   --color-accent-purple: #A100FF;/* A100FF */
   --color-sun-yellow: #FFCE31;   /* FFCE31 */
+  --color-bright-yellow: #FFFF00; /* FFFF00 */
   --color-lime-green: #00FF08;   /* 82CE33 */
   --color-cream-yellow: #FFDF91; /* FFDF91 */
   --color-white: #FFFFFF;     /* fffff */

@@ -402,6 +402,82 @@ export default function HistoryPage() {
                   </ul>
                 </article>
               </section>
+              <div className="history_more">
+                  <h3 className="cont_title">그 간의 추진경과</h3>
+                  <div className="more_box">
+                    <ul>
+                      <li className="orange">
+                        <div className="more_txt">
+                          <span>01 태동기</span>
+                          <p>'04~' 08년</p>
+                        </div>
+                        <h2>기후변화대응 및 태양에너지 이용 촉진 정책의 태동단계</h2>
+                        <div className="more_cont">
+                          <div className="">
+                            <p> · '20년까지 온실가스 배출 20% 줄이기</p>
+                            <span>태양열 · 연료전지로 에너지 1% 대체 목표 설정 </span>
+                          </div>
+                          <div className="more_cont">
+                            <p> · '15년까지 '05년 온실가스 배출량의 10% 감축</p>
+                            <span>신재생에너지 사용비율 5% 목표 설정 </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="blue">
+                        <div className="more_txt">
+                          <span>02 확대기</span>
+                          <p>'09~' 19년</p>
+                        </div>
+                        <h2>기후변화대응 정책 기반 마련과 시범도시 추진</h2>
+                        <div className="more_cont">
+                          <div className="">
+                            <p> · 추진체계 마련과 기후변화대응조례 제정</p>
+                          </div>
+                          <div className="">
+                            <p> · 탄소중립도시 광주 2050 계획 수립 및 탄소중립도시 조성특별법 추진</p>
+                          </div>
+                          <div className="">
+                            <p> · 기후변화대응 위한 종합계획(1차·2차) <br/>
+                            적응대책(1차)의 수립과 이행</p>
+                          </div>
+                          <div className="">
+                            <p> · 체계적인 정책 연구 및 시민실천과 교육을 위한 전문기관 설립</p>
+                          </div>
+                          <div className="">
+                            <p> · 시민참여를 위한 다양한 사업의 전개</p>
+                          </div>
+                          <div className="">
+                            <p> · 도시환경협약(UEA) 정상회의 최초 개최</p>
+                          </div>
+                          <div className="">
+                            <p> · 전국최초 도시탄소관리 시스템구축<br/> 온실가스 인벤토리 지속 발행</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="green">
+                        <div className="more_txt">
+                          <span>03 도약기</span>
+                          <p>'20년~</p>
+                        </div>
+                        <h2>탄소중립 대두와 2045 탄소중립도시 추진</h2>
+                        <div className="more_cont">
+                          <div className="">
+                            <p> · 기후변화대응을 위한 행정계획의 수립 및 이행</p>
+                          </div>
+                          <div className="">
+                            <p> · 광주공동체 기후위기 비상사태 공동선포 및 2045 탄소중립 에너지 자립도시 선언</p>
+                          </div>
+                          <div className="">
+                            <p> · 광주 기후위기대응 기본조례 제정</p>
+                          </div>
+                          <div className="">
+                            <p> · 탄소중립 이행을 위한 정책의 구체와 및 제도화 추진진</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
             </div>
           </div>
         </div>

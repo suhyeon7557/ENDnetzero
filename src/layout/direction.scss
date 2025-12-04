@@ -1,0 +1,179 @@
+.Direction .direction_wrap {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(251,248,244,1);
+}
+
+/* 지도 이미지 영역 */
+.Direction .map_area {
+  flex: 2;
+  min-height: 500px;
+}
+
+.Direction .map_area {
+  overflow: hidden;
+}
+
+.Direction .map_area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.3);
+  transform-origin: center center;
+}
+
+/* 정보 영역 */
+.Direction .info_area {
+  flex: 1;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #FF9500;
+  gap: 20px;
+}
+
+.Direction .info_title {
+  font-size: var(--fs-32);
+  font-weight: 700;
+  color: var(--color-accent-orange);
+}
+
+.Direction .info_subtitle {
+  font-size: var(--fs-16);
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+/* 정보 리스트 */
+.Direction .info_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.Direction .info_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.Direction .info_icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.Direction .info_icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.Direction .info_content {
+  flex: 1;
+}
+
+.Direction .info_ko {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.Direction .info_en {
+  font-size: var(--fs-16);
+  color: var(--color-neutral-500);
+  line-height: 1.5;
+}
+
+.Direction .info_route .info_ko {
+  line-height: 1.7;
+}
+
+/* 길찾기 버튼 */
+.Direction .btn_direction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: var(--fs-18);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: auto;
+}
+
+.Direction .btn_direction {
+  background: var(--color-forest-green);
+}
+
+.Direction .btn_direction img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 반응형 - 태블릿 */
+@media (max-width: 1024px) {
+  .Direction .info_area {
+    padding: 25px 30px;
+  }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 768px) {
+  .Direction .direction_wrap {
+    flex-direction: column;
+  }
+
+  .Direction .map_area {
+    min-height: 0;
+  }
+
+  .Direction .info_area {
+    padding: 20px;
+  }
+
+  .Direction .info_title {
+    font-size: var(--fs-20);
+  }
+
+  .Direction .info_subtitle {
+    font-size: var(--fs-14);
+  }
+
+  .Direction .info_list {
+    gap: 12px;
+  }
+
+  .Direction .info_item {
+    gap: 10px;
+  }
+
+  .Direction .info_ko {
+    font-size: var(--fs-14);
+  }
+
+  .Direction .info_en {
+    font-size: var(--fs-12);
+  }
+
+  .Direction .btn_direction {
+    padding: 14px 20px;
+    font-size: var(--fs-16);
+  }
+}
+

@@ -11,6 +11,8 @@ import "../layout/climate.scss";
 import "../layout/carbon.scss";
 import "../layout/practice.scss";
 import "../layout/emission-map.scss";
+import "../layout/direction.scss";
+import "../layout/main.scss";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 

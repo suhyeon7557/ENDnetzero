@@ -45,6 +45,94 @@
           backdrop-filter: blur(1px);
 }
 
+.History .history_more {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.History .history_more .more_box {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  padding-bottom: 80px;
+}
+.History .history_more .more_box ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  align-items: stretch;
+}
+.History .history_more .more_box ul li {
+  width: calc(100% / 3 - 20px);
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+/* 계단식 배치: 01 아래, 02 중간, 03 위 */
+.History .history_more .more_box ul li.orange {
+  transform: translateY(80px);
+}
+.History .history_more .more_box ul li.blue {
+  transform: translateY(40px);
+}
+.History .history_more .more_box ul li.green {
+  transform: translateY(0);
+}
+.History .history_more .more_box ul li .more_txt {
+  color: #fff;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+}
+.History .history_more .more_box ul li h2 {
+  font-size: var(--fs-24);
+  font-weight: 700;
+}
+.History .history_more .more_box ul li.orange {
+  background: #FBF8F4;
+}
+.History .history_more .more_box ul li.blue {
+  background: #F3F8FF;
+} 
+.History .history_more .more_box ul li.green {
+  background: #F8FFF8;
+}
+.History .history_more .more_box ul li .more_txt {
+  padding: 15px;
+  display: flex;
+  border-radius: 10px;
+}
+.History .history_more .more_box ul li .more_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.History .history_more .more_box ul li.orange .more_txt {
+  background: #FF9500;
+}
+.History .history_more .more_box ul li.blue .more_txt {
+  background: #0172FF;
+}
+.History .history_more .more_box ul li.green .more_txt {
+  background: #23861C;
+}
+.History .history_more .more_box ul li .more_txt span {
+  font-size: var(--fs-32);
+  font-weight: 700;
+}
+.History .history_more .more_box ul li.orange .more_txt p {
+  font-size: var(--fs-20);
+}
+
+
 /* 국제사회 */
 .History .e1980 { top: 0; left: 0; }
 .History .e1988 { top: 0; left: 560px; }
@@ -119,6 +207,51 @@
   }
   .History .timeline { height: 900px; }
   .History .event { font-size: var(--fs-18); }
+}
+/* more_box 반응형 - 태블릿 */
+@media (max-width: 1024px) {
+  .History .history_more .more_box ul li {
+    width: calc(50% - 15px);
+  }
+  .History .history_more .more_box ul li.orange {
+    transform: translateY(60px);
+  }
+  .History .history_more .more_box ul li.blue {
+    transform: translateY(30px);
+  }
+  .History .history_more .more_box ul li.green {
+    transform: translateY(0);
+  }
+  .History .history_more {
+    margin-top: 30px;
+    gap: 20px;
+  }
+}
+/* more_box 반응형 - 모바일 */
+@media (max-width: 768px) {
+  .History .history_more .more_box {
+    padding-bottom: 0;
+  }
+  .History .history_more .more_box ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .History .history_more .more_box ul li {
+    width: 100%;
+  }
+  .History .history_more .more_box ul li.orange,
+  .History .history_more .more_box ul li.blue,
+  .History .history_more .more_box ul li.green {
+    transform: translateY(0);
+  }
+  .History .history_more .more_box ul li {
+    padding: 15px 20px;
+    gap: 10px;
+  }
+  .History .history_more .more_box ul li .more_txt {
+    padding: 10px;
+  }
 }
 
 /* 팝업 오버레이는 공통(#popup_overlay) 스타일을 사용합니다. */
