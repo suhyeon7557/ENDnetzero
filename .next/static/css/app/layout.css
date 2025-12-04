@@ -5292,7 +5292,7 @@ html.gnb2-open #side_btn .btn_hamburger {
 .quick_menu {
   position: fixed;
   right: 20px;
-  top: 200px;
+  top: 210px;
   z-index: 90;
   display: flex;
   flex-direction: column;
@@ -5356,6 +5356,8 @@ html.gnb2-open #side_btn .btn_hamburger {
 .floating_dashboard {
   position: fixed;
   right: 20px;
+  width: 70px;
+  height: 70px;
   top: 120px;
   z-index: 90;
   display: flex;
@@ -5363,12 +5365,11 @@ html.gnb2-open #side_btn .btn_hamburger {
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  border-radius: 50%;
   padding: 10px;
-  min-width: 110px;
   background-color: var(--color-accent-purple);
   color: #fff;
   text-decoration: none;
-  border-radius: 10px;
   transition: all 0.3s ease;
   overflow: hidden;
 }
@@ -5386,8 +5387,8 @@ html.gnb2-open #side_btn .btn_hamburger {
 }
 
 .floating_dashboard .floating_icon {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
   position: relative;
   z-index: 1;
@@ -5438,5 +5439,419 @@ html.gnb2-open #side_btn .btn_hamburger {
   }
   .floating_dashboard .floating_text {
     font-size: 9px;
+  }
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/practice-guide.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* 생활실천안내 페이지 스타일 */
+/* 안내서 다운로드 섹션 */
+.PracticeGuide .section_title {
+  font-size: var(--fs-28);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.PracticeGuide .guidebook_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.PracticeGuide .guidebook_images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.PracticeGuide .guidebook_item {
+  width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.PracticeGuide .guidebook_item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.PracticeGuide .guidebook_item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.PracticeGuide .download_btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.PracticeGuide .download_btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #fff;
+  border: 1px solid var(--color-brand-blue);
+  border-radius: 8px;
+  color: var(--color-brand-blue);
+  font-size: var(--fs-16);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.PracticeGuide .download_btn:hover {
+  background: var(--color-brand-blue);
+  color: #fff;
+}
+
+.PracticeGuide .download_btn:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.PracticeGuide .download_btn img {
+  width: 18px;
+  height: 18px;
+  transition: filter 0.2s ease;
+}
+
+/* 실천 카테고리 섹션 */
+.PracticeGuide .practice_section {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.PracticeGuide .practice_accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 아코디언 아이템 */
+.PracticeGuide .accordion_item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.PracticeGuide .accordion_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.PracticeGuide .accordion_item:nth-child(1) .accordion_header {
+  background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+}
+
+.PracticeGuide .accordion_item:nth-child(2) .accordion_header {
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+}
+
+.PracticeGuide .accordion_item:nth-child(3) .accordion_header {
+  background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+}
+
+.PracticeGuide .accordion_item:nth-child(4) .accordion_header {
+  background: linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%);
+}
+
+.PracticeGuide .accordion_item:nth-child(5) .accordion_header {
+  background: linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%);
+}
+
+.PracticeGuide .accordion_title {
+  font-size: var(--fs-20);
+  font-weight: 600;
+  color: #fff;
+}
+
+.PracticeGuide .accordion_icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.PracticeGuide .accordion_icon::before,
+.PracticeGuide .accordion_icon::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.PracticeGuide .accordion_icon::before {
+  width: 14px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.PracticeGuide .accordion_icon::after {
+  width: 2px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.PracticeGuide .accordion_item.active .accordion_icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+/* 아코디언 콘텐츠 */
+.PracticeGuide .accordion_content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.PracticeGuide .accordion_item.active .accordion_content {
+  max-height: 3000px;
+  overflow: visible;
+}
+
+/* 탭 */
+.PracticeGuide .tab_wrap {
+  padding: 15px 20px;
+  background: #f9f9f9;
+}
+
+.PracticeGuide .tab_btns {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 15px;
+}
+
+.PracticeGuide .tab_btn {
+  padding: 5px 20px;
+  background: #fff;
+  border-radius: 25px;
+  font-size: var(--fs-16);
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.PracticeGuide .tab_btn:hover {
+  border-color: var(--color-brand-blue);
+  color: var(--color-brand-blue);
+}
+
+.PracticeGuide .tab_btn.active {
+  background: var(--color-brand-blue);
+  border-color: var(--color-brand-blue);
+  color: #fff;
+}
+
+/* 탭 콘텐츠 */
+.PracticeGuide .tab_content {
+  display: none;
+}
+
+.PracticeGuide .tab_content.active {
+  display: block;
+}
+
+/* 실천 리스트 */
+.PracticeGuide .practice_list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.PracticeGuide .practice_list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.PracticeGuide .practice_list li:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.PracticeGuide .practice_main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.PracticeGuide .practice_list .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #FF9800;
+  color: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.PracticeGuide .practice_list .text {
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 효과 정보 영역 */
+.PracticeGuide .practice_effect {
+  display: flex;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.PracticeGuide .effect_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 16px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  min-width: 280px;
+  width: 280px;
+}
+
+.PracticeGuide .effect_label {
+  color: #888;
+  font-weight: 500;
+}
+
+.PracticeGuide .effect_value {
+  font-weight: 700;
+  color: #333;
+}
+
+.PracticeGuide .effect_value.highlight {
+  color: var(--color-brand-blue);
+}
+
+/* 카테고리별 넘버 색상 */
+.PracticeGuide .accordion_item:nth-child(1) .practice_list .num {
+  background: #FF9800;
+}
+
+.PracticeGuide .accordion_item:nth-child(2) .practice_list .num {
+  background: #4CAF50;
+}
+
+.PracticeGuide .accordion_item:nth-child(3) .practice_list .num {
+  background: #2196F3;
+}
+
+.PracticeGuide .accordion_item:nth-child(4) .practice_list .num {
+  background: #9C27B0;
+}
+
+.PracticeGuide .accordion_item:nth-child(5) .practice_list .num {
+  background: #00BCD4;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .PracticeGuide .section_title {
+    margin-bottom: 30px;
+  }
+  .PracticeGuide .guidebook_images {
+    gap: 20px;
+  }
+  .PracticeGuide .guidebook_item {
+    width: 150px;
+  }
+  .PracticeGuide .download_btns {
+    gap: 10px;
+  }
+  .PracticeGuide .download_btn {
+    padding: 10px 15px;
+  }
+  .PracticeGuide .accordion_header {
+    padding: 10px 15px;
+  }
+  .PracticeGuide .accordion_item.active .accordion_content {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .PracticeGuide .tab_btns {
+    padding-bottom: 10px;
+  }
+  .PracticeGuide .tab_wrap {
+    padding: 10px;
+  }
+  .PracticeGuide .tab_btns {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .PracticeGuide .tab_btn {
+    padding: 8px 18px;
+    font-size: var(--fs-14);
+  }
+  .PracticeGuide .practice_list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 12px;
+  }
+  .PracticeGuide .practice_main {
+    width: 100%;
+  }
+  .PracticeGuide .practice_list .num {
+    width: 26px;
+    height: 26px;
+  }
+  .PracticeGuide .practice_effect {
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .PracticeGuide .effect_item {
+    flex: 1;
+    min-width: auto;
+    padding: 8px 12px;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .PracticeGuide .guidebook_item {
+    width: 120px;
+  }
+  .PracticeGuide .guidebook_images {
+    display: none;
+  }
+  .PracticeGuide .download_btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .PracticeGuide .download_btn img {
+    display: none;
   }
 }

@@ -1082,7 +1082,7 @@
 .quick_menu {
   position: fixed;
   right: 20px;
-  top: 200px;
+  top: 210px;
   z-index: 90;
   display: flex;
   flex-direction: column;
@@ -1148,6 +1148,8 @@
 .floating_dashboard {
   position: fixed;
   right: 20px;
+  width: 70px;
+  height: 70px;
   top: 120px;
   z-index: 90;
   display: flex;
@@ -1155,12 +1157,11 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  border-radius: 50%;
   padding: 10px;
-  min-width: 110px;
   background-color: var(--color-accent-purple);
   color: #fff;
   text-decoration: none;
-  border-radius: 10px;
   transition: all 0.3s ease;
   overflow: hidden;
 }
@@ -1178,8 +1179,8 @@
 }
 
 .floating_dashboard .floating_icon {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
   position: relative;
   z-index: 1;

@@ -13,6 +13,7 @@ import "../layout/practice.scss";
 import "../layout/emission-map.scss";
 import "../layout/direction.scss";
 import "../layout/main.scss";
+import "../layout/practice-guide.scss";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 
@@ -32,6 +33,12 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        
+        {/* 대시보드 플로팅 버튼 - 모든 페이지에서 표시 */}
+        <a href="#" className="floating_dashboard" aria-label="대시보드">
+          <img src="/images/ic_dashboard_btn.svg" alt="" className="floating_icon" />
+          <span className="floating_text">대시보드</span>
+        </a>
       </body>
     </html>
   );

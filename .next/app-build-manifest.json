@@ -11,6 +11,17 @@
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
+    ],
+    "/practice-guide/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/practice-guide/page.css",
+      "static/chunks/app/practice-guide/page.js"
+    ],
+    "/emission-map/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/emission-map/page.js"
     ]
   }
 }

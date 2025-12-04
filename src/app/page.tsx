@@ -397,13 +397,7 @@ export default function MainPage() {
         </section>
       </div>
 
-      {/* 대시보드 플로팅 버튼 - 반응형에서도 항상 표시 */}
-      <a href="#" className="floating_dashboard" aria-label="대시보드">
-        <img src="/images/ic_dashboard_btn.svg" alt="" className="floating_icon" />
-        <span className="floating_text">대시보드</span>
-      </a>
-
-      {/* 퀵메뉴 - gcea.or.kr 스타일 (반응형에서 숨김) */}
+      {/* 퀵메뉴 - gcea.or.kr 스타일 (반응형에서 숨김, 메인에서만 표시) */}
       <aside className="quick_menu" aria-label="퀵메뉴">
         <a href="#" className="quick_item">
           <img src="/images/ic_floating01.svg" alt="" className="quick_icon" />

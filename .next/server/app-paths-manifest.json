@@ -1,3 +1,5 @@
 {
+  "/practice-guide/page": "app/practice-guide/page.js",
+  "/emission-map/page": "app/emission-map/page.js",
   "/page": "app/page.js"
 }
