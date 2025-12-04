@@ -396,6 +396,36 @@ export default function MainPage() {
           </div>
         </section>
       </div>
+
+      {/* 대시보드 플로팅 버튼 - 반응형에서도 항상 표시 */}
+      <a href="#" className="floating_dashboard" aria-label="대시보드">
+        <img src="/images/ic_dashboard_btn.svg" alt="" className="floating_icon" />
+        <span className="floating_text">대시보드</span>
+      </a>
+
+      {/* 퀵메뉴 - gcea.or.kr 스타일 (반응형에서 숨김) */}
+      <aside className="quick_menu" aria-label="퀵메뉴">
+        <a href="#" className="quick_item">
+          <img src="/images/ic_floating01.svg" alt="" className="quick_icon" />
+          <span className="quick_text">광주도시탄소<br/> 관리 시스템<br/>(UCMS)</span>
+        </a>
+        <a href="#" className="quick_item">
+          <img src="/images/ic_floating02.svg" alt="" className="quick_icon" />
+          <span className="quick_text">도시평가모델<br/>(UAMS)</span>
+        </a>
+        <a href="#" className="quick_item">
+          <img src="/images/ic_floating03.svg" alt="" className="quick_icon" />
+          <span className="quick_text">기후·환경·에너지<br/> 빅데이터<br/> 플랫폼 </span>
+        </a>
+        <a href="#" className="quick_item">
+          <img src="/images/ic_floating04.svg" alt="" className="quick_icon" />
+          <span className="quick_text">기후환경<br/>교육 온라인<br/>플랫폼</span>
+        </a>
+        <a href="#" className="quick_item">
+          <img src="/images/ic_floating05.svg" alt="" className="quick_icon" />
+          <span className="quick_text">광주광역시<br/>환경교육<br/>통합시스템</span>
+        </a>
+      </aside>
     </main>
   );
 }

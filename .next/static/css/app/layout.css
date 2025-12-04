@@ -3761,10 +3761,37 @@ html.gnb2-open #side_btn .btn_hamburger {
 
 /* 차트 영역 */
 .EmissionMap .chart_area {
+  position: relative;
   box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
   border-radius: 12px;
   padding: 20px;
   background: #fff;
+}
+
+/* 데이터 없음 오버레이 */
+.EmissionMap .chart_area.no-data::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.EmissionMap .chart_area.no-data::after {
+  content: "데이터가 존재하지 않습니다.";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: var(--fs-18);
+  font-weight: 600;
+  z-index: 11;
+  text-align: center;
 }
 
 .EmissionMap .chart_unit {
@@ -5255,5 +5282,161 @@ html.gnb2-open #side_btn .btn_hamburger {
   .indicator_section .indicator_btn img {
     width: 30px;
     height: 30px;
+  }
+  /* 퀵메뉴 반응형 - 숨김 */
+  .quick_menu {
+    display: none;
+  }
+}
+/* ===== 퀵메뉴 스타일 (gcea.or.kr 참고) ===== */
+.quick_menu {
+  position: fixed;
+  right: 20px;
+  top: 200px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quick_menu .quick_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 15px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #555;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  min-width: 80px;
+}
+
+.quick_menu .quick_item:hover {
+  background: rgba(1, 114, 255, 0.1);
+  color: var(--color-brand-blue);
+}
+
+.quick_menu .quick_item .quick_icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.quick_menu .quick_item .quick_text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
+@keyframes quickShine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+/* 1024px 이하에서 퀵메뉴 숨김 */
+@media (max-width: 1024px) {
+  .quick_menu {
+    display: none;
+  }
+}
+/* ===== 플로팅 대시보드 버튼 (반응형에서도 항상 표시) ===== */
+.floating_dashboard {
+  position: fixed;
+  right: 20px;
+  top: 120px;
+  z-index: 90;
+  display: flex;
+  font-size: var(--fs-16);
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+  min-width: 110px;
+  background-color: var(--color-accent-purple);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.floating_dashboard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: quickShine 3s infinite;
+}
+
+.floating_dashboard .floating_icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.floating_dashboard .floating_text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.floating_dashboard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.45);
+  filter: brightness(1.1);
+}
+
+/* 반응형 - 대시보드 위치 조정 */
+@media (max-width: 1024px) {
+  .floating_dashboard {
+    right: 15px;
+    top: auto;
+    bottom: 20px;
+    padding: 10px 8px;
+    min-width: 70px;
+  }
+  .floating_dashboard .floating_icon {
+    width: 24px;
+    height: 24px;
+  }
+  .floating_dashboard .floating_text {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .floating_dashboard {
+    right: 10px;
+    bottom: 15px;
+    padding: 8px 6px;
+    min-width: 60px;
+    border-radius: 10px;
+  }
+  .floating_dashboard .floating_icon {
+    width: 22px;
+    height: 22px;
+  }
+  .floating_dashboard .floating_text {
+    font-size: 9px;
   }
 }

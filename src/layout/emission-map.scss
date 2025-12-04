@@ -198,10 +198,37 @@
 
 /* 차트 영역 */
 .EmissionMap .chart_area {
+  position: relative;
   box-shadow: 0 0 10px 0 rgba(155, 155, 155, 0.1);
   border-radius: 12px;
   padding: 20px;
   background: #fff;
+}
+
+/* 데이터 없음 오버레이 */
+.EmissionMap .chart_area.no-data::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.EmissionMap .chart_area.no-data::after {
+  content: "데이터가 존재하지 않습니다.";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: var(--fs-18);
+  font-weight: 600;
+  z-index: 11;
+  text-align: center;
 }
 
 .EmissionMap .chart_unit {
