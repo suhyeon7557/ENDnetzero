@@ -5446,6 +5446,14 @@ html.gnb2-open #side_btn .btn_hamburger {
     flex: 0 0 calc(50% - 4px);
     min-width: 100px;
   }
+  #promise_popup_overlay .selected_promise_info {
+    gap: 8px;
+    padding: 10px;
+  }
+  #promise_popup_overlay .selected_promise_info img {
+    width: 40px;
+    height: 40px;
+  }
   .hero_section .hero_text {
     max-width: 500px;
     left: 15px;
