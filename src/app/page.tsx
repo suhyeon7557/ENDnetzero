@@ -109,6 +109,86 @@ export default function MainPage() {
     }
   };
 
+  // 약속하기 탭 & 팝업 스크립트
+  useEffect(() => {
+    // 탭 전환
+    const tabBtns = document.querySelectorAll('.promise_tab_btn[data-tab]');
+    const panels = document.querySelectorAll('.promise_items[data-panel]');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        const isActive = btn.classList.contains('active');
+        
+        // 모든 탭 active 해제
+        tabBtns.forEach(b => b.classList.remove('active'));
+        // 모든 패널 숨김
+        panels.forEach(p => p.classList.remove('active'));
+        
+        // 이미 active였으면 해제만, 아니면 활성화
+        if (!isActive) {
+          btn.classList.add('active');
+          panels.forEach(p => {
+            if (p.getAttribute('data-panel') === tab) {
+              p.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // 팝업 열기
+    const popup = document.getElementById('promise_popup_overlay');
+    const popupIcon = document.getElementById('promise_popup_icon') as HTMLImageElement;
+    const popupLabel = document.getElementById('promise_popup_label');
+    const popupClose = document.querySelector('#promise_popup_overlay .popup_close');
+    const promiseForm = document.getElementById('promise_form') as HTMLFormElement;
+    const submitBtn = document.getElementById('promise_submit_btn') as HTMLButtonElement;
+    const itemBtns = document.querySelectorAll('.promise_item_btn');
+
+    itemBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const label = btn.getAttribute('data-promise') || '';
+        const icon = btn.getAttribute('data-icon') || '';
+        if (popupIcon) popupIcon.src = icon;
+        if (popupLabel) popupLabel.textContent = label;
+        popup?.classList.add('is-open');
+        popup?.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    // 팝업 닫기
+    const closePopup = () => {
+      popup?.classList.remove('is-open');
+      popup?.setAttribute('aria-hidden', 'true');
+      promiseForm?.reset();
+      if (submitBtn) submitBtn.disabled = true;
+    };
+    popupClose?.addEventListener('click', closePopup);
+    popup?.addEventListener('click', (e) => {
+      if (e.target === popup) closePopup();
+    });
+
+    // 폼 유효성 검사
+    const checkFormValidity = () => {
+      if (submitBtn && promiseForm) {
+        submitBtn.disabled = !promiseForm.checkValidity();
+      }
+    };
+    promiseForm?.addEventListener('input', checkFormValidity);
+    promiseForm?.addEventListener('change', checkFormValidity);
+
+    // 폼 제출
+    promiseForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      closePopup();
+    });
+
+    return () => {
+      // cleanup (React strict mode 대비)
+    };
+  }, []);
+
   return (
     <main id="main" className="main_page">
       {/* Hero Section */}
@@ -155,6 +235,63 @@ export default function MainPage() {
               <div className={`notice_item ${noticeIndex === 0 ? 'active' : ''}`}><span className="notice_date">2025-11-13</span><a href="/notice/1" className="notice_link">빛고을 기후위기 대응 시민총회 참여자 모집</a></div>
               <div className={`notice_item ${noticeIndex === 1 ? 'active' : ''}`}><span className="notice_date">2025-11-10</span><a href="/notice/2" className="notice_link">2025년 탄소중립 실천 캠페인 안내</a></div>
               <div className={`notice_item ${noticeIndex === 2 ? 'active' : ''}`}><span className="notice_date">2025-11-05</span><a href="/notice/3" className="notice_link">광주시 온실가스 감축 우수사례 공모전</a></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Promise Section - 약속하기 */}
+        <section className="promise_section_main">
+          <div className="section_inner">
+            <h2 className="section_title">약속하기</h2>
+            <div className="promise_tabs">
+              <a href="/promise" className="promise_tab_btn all"><img src="/images/ic_menu.svg" alt="" /><span>전체</span></a>
+              <button type="button" className="promise_tab_btn active" data-tab="energy"><img src="/images/ic_main_promise01.svg" alt="" /><span>에너지 절약</span></button>
+              <button type="button" className="promise_tab_btn" data-tab="cycle"><img src="/images/ic_main_promise02.svg" alt="" /><span>자원순환</span></button>
+              <button type="button" className="promise_tab_btn" data-tab="transport"><img src="/images/ic_main_promise03.svg" alt="" /><span>친환경 교통</span></button>
+              <button type="button" className="promise_tab_btn" data-tab="green"><img src="/images/ic_main_promise04.svg" alt="" /><span>녹색소비</span></button>
+              <button type="button" className="promise_tab_btn" data-tab="sink"><img src="/images/ic_main_promise05.svg" alt="" /><span>흡수원 보호</span></button>
+            </div>
+            <div className="promise_items_wrap">
+              {/* 에너지 절약 */}
+              <ul className="promise_items active" data-panel="energy">
+                <li><button type="button" className="promise_item_btn" data-promise="대기전력 차단" data-icon="/images/ic_promise01.svg"><span className="item_icon"><img src="/images/ic_promise01.svg" alt="" /></span><span className="item_label">대기전력 차단</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="비사용 공간 소등" data-icon="/images/ic_promise02.svg"><span className="item_icon"><img src="/images/ic_promise02.svg" alt="" /></span><span className="item_label">비사용 공간 소등</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="4℃ 냉난방 온도 설정" data-icon="/images/ic_promise03.svg"><span className="item_icon"><img src="/images/ic_promise03.svg" alt="" /></span><span className="item_label">4℃ 냉난방 온도 설정</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="전기밥솥 보온 단축" data-icon="/images/ic_promise04.svg"><span className="item_icon"><img src="/images/ic_promise04.svg" alt="" /></span><span className="item_label">전기밥솥 보온 단축</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="고효율 제품 사용" data-icon="/images/ic_promise05.svg"><span className="item_icon"><img src="/images/ic_promise05.svg" alt="" /></span><span className="item_label">고효율 제품 사용</span></button></li>
+              </ul>
+              {/* 자원순환 */}
+              <ul className="promise_items" data-panel="cycle">
+                <li><button type="button" className="promise_item_btn" data-promise="텀블러 이용" data-icon="/images/ic_promise06.svg"><span className="item_icon"><img src="/images/ic_promise06.svg" alt="" /></span><span className="item_label">텀블러 이용</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="수리·사용연장 생활화" data-icon="/images/ic_promise07.svg"><span className="item_icon"><img src="/images/ic_promise07.svg" alt="" /></span><span className="item_label">수리·사용연장 생활화</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="일회용품 사용 줄이기" data-icon="/images/ic_promise08.svg"><span className="item_icon"><img src="/images/ic_promise08.svg" alt="" /></span><span className="item_label">일회용품 사용 줄이기</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="쓰레기 분리 배출" data-icon="/images/ic_promise09.svg"><span className="item_icon"><img src="/images/ic_promise09.svg" alt="" /></span><span className="item_label">쓰레기 분리 배출</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="장바구니 사용" data-icon="/images/ic_promise10.svg"><span className="item_icon"><img src="/images/ic_promise10.svg" alt="" /></span><span className="item_label">장바구니 사용</span></button></li>
+              </ul>
+              {/* 친환경 교통 */}
+              <ul className="promise_items" data-panel="transport">
+                <li><button type="button" className="promise_item_btn" data-promise="가까운 곳 걷기" data-icon="/images/ic_promise11.svg"><span className="item_icon"><img src="/images/ic_promise11.svg" alt="" /></span><span className="item_label">가까운 곳 걷기</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="대중교통 이용" data-icon="/images/ic_promise12.svg"><span className="item_icon"><img src="/images/ic_promise12.svg" alt="" /></span><span className="item_label">대중교통 이용</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="자전거 이용" data-icon="/images/ic_promise13.svg"><span className="item_icon"><img src="/images/ic_promise13.svg" alt="" /></span><span className="item_label">자전거 이용</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="공유차량 이용" data-icon="/images/ic_promise14.svg"><span className="item_icon"><img src="/images/ic_promise14.svg" alt="" /></span><span className="item_label">공유차량 이용</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="승용차 함께 타기" data-icon="/images/ic_promise15.svg"><span className="item_icon"><img src="/images/ic_promise15.svg" alt="" /></span><span className="item_label">승용차 함께 타기</span></button></li>
+              </ul>
+              {/* 녹색소비 */}
+              <ul className="promise_items" data-panel="green">
+                <li><button type="button" className="promise_item_btn" data-promise="제철·지역 먹거리" data-icon="/images/ic_promise16.svg"><span className="item_icon"><img src="/images/ic_promise16.svg" alt="" /></span><span className="item_label">제철·지역 먹거리</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="채소·저탄소 식단" data-icon="/images/ic_promise17.svg"><span className="item_icon"><img src="/images/ic_promise17.svg" alt="" /></span><span className="item_label">채소·저탄소 식단</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="필요한 만큼만 구입" data-icon="/images/ic_promise18.svg"><span className="item_icon"><img src="/images/ic_promise18.svg" alt="" /></span><span className="item_label">필요한 만큼만 구입</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="녹색제품 구입" data-icon="/images/ic_promise19.svg"><span className="item_icon"><img src="/images/ic_promise19.svg" alt="" /></span><span className="item_label">녹색제품 구입</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="구매 전 환경성 고려" data-icon="/images/ic_promise20.svg"><span className="item_icon"><img src="/images/ic_promise20.svg" alt="" /></span><span className="item_label">구매 전 환경성 고려</span></button></li>
+              </ul>
+              {/* 흡수원 보호 */}
+              <ul className="promise_items" data-panel="sink">
+                <li><button type="button" className="promise_item_btn" data-promise="가정 내 식재" data-icon="/images/ic_promise21.svg"><span className="item_icon"><img src="/images/ic_promise21.svg" alt="" /></span><span className="item_label">가정 내 식재</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="숲 지키기 참여" data-icon="/images/ic_promise22.svg"><span className="item_icon"><img src="/images/ic_promise22.svg" alt="" /></span><span className="item_label">숲 지키기 참여</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="나무 가꾸기" data-icon="/images/ic_promise23.svg"><span className="item_icon"><img src="/images/ic_promise23.svg" alt="" /></span><span className="item_label">나무 가꾸기</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="함께하는 실천" data-icon="/images/ic_promise24.svg"><span className="item_icon"><img src="/images/ic_promise24.svg" alt="" /></span><span className="item_label">함께하는 실천</span></button></li>
+                <li><button type="button" className="promise_item_btn" data-promise="생태 보전 활동" data-icon="/images/ic_promise25.svg"><span className="item_icon"><img src="/images/ic_promise25.svg" alt="" /></span><span className="item_label">생태 보전 활동</span></button></li>
+              </ul>
             </div>
           </div>
         </section>
@@ -395,6 +532,73 @@ export default function MainPage() {
             </div>
           </div>
         </section>
+      </div>
+
+      {/* 약속하기 개인정보 수집 팝업 */}
+      <div id="promise_popup_overlay" aria-hidden="true">
+        <div className="popup_modal" role="dialog" aria-modal="true" aria-labelledby="promise_popup_title">
+          <div className="popup_header">
+            <strong id="promise_popup_title">개인정보 수집·이용 동의</strong>
+            <button type="button" className="popup_close" aria-label="닫기">×</button>
+          </div>
+          <form className="popup_body" id="promise_form">
+            <div className="selected_promise_info">
+              <img src="" alt="" id="promise_popup_icon" />
+              <span id="promise_popup_label"></span>
+            </div>
+            <div className="form_grid">
+              <div className="form_row">
+                <label htmlFor="promise_name"><span className="req" aria-hidden="true">*</span> 성명</label>
+                <input id="promise_name" name="name" type="text" required placeholder="홍길동" />
+              </div>
+              <div className="form_row">
+                <span className="form_label"><span className="req" aria-hidden="true">*</span> 성별</span>
+                <div className="radio_group segmented" role="radiogroup" aria-label="성별">
+                  <label className="seg_item">
+                    <input type="radio" name="gender" value="여성" required />
+                    <span>여</span>
+                  </label>
+                  <label className="seg_item">
+                    <input type="radio" name="gender" value="남성" />
+                    <span>남</span>
+                  </label>
+                </div>
+              </div>
+              <div className="form_row">
+                <label htmlFor="promise_age"><span className="req" aria-hidden="true">*</span> 연령대</label>
+                <div className="select_wrap">
+                  <select id="promise_age" name="age" required>
+                    <option value="">선택</option>
+                    <option>10대</option>
+                    <option>20대</option>
+                    <option>30대</option>
+                    <option>40대</option>
+                    <option>50대</option>
+                    <option>60대 이상</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form_row">
+                <label htmlFor="promise_addr"><span className="req" aria-hidden="true">*</span> 거주지</label>
+                <input id="promise_addr" name="address" type="text" required placeholder="예시) 서구 유촌동" />
+              </div>
+            </div>
+
+            <div className="form_row agree_full">
+              <div className="agree_box">
+                <p className="agree_desc">
+                  (수집자) 광주광역시 기후에너지진흥원은 문의 처리 및 서비스 제공을 위해 귀하의 이름, 연락처, 주소를 수집·이용합니다.
+                  자세한 사항은 개인정보처리방침을 확인하세요.{" "}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer">개인정보처리방침</a>
+                </p>
+              </div>
+            </div>
+
+            <div className="form_actions full">
+              <button type="submit" className="btn_primary btn_full" id="promise_submit_btn" disabled>동의합니다</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       {/* 퀵메뉴 - gcea.or.kr 스타일 (반응형에서 숨김, 메인에서만 표시) */}

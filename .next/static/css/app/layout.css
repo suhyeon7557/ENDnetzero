@@ -2172,6 +2172,32 @@ html.gnb2-open #side_btn .btn_hamburger {
     padding: 10px;
   }
 }
+/* 빈 리스트 상태 표시 (no-data 클래스 사용) */
+.report_list_wrap.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 40px 20px;
+}
+
+.report_list_wrap.no-data::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: url("/images/ic_nodata.svg") no-repeat center/contain;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.report_list_wrap.no-data::after {
+  content: "현재 게시물이 없습니다.";
+  color: var(--color-neutral-500);
+  font-size: var(--fs-16);
+  text-align: center;
+}
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[11].use[5]!./src/layout/search.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -4336,6 +4362,7 @@ html.gnb2-open #side_btn .btn_hamburger {
 .hero_section .climate_clock .clock_number {
   font-family: "DS-Digital", monospace;
   font-size: var(--fs-32);
+  font-weight: 700;
   color: #FFFF00;
   letter-spacing: 2px;
 }
@@ -4497,6 +4524,196 @@ html.gnb2-open #side_btn .btn_hamburger {
 .notice_banner .notice_link:hover {
   color: var(--color-brand-blue);
   text-decoration: underline;
+}
+
+/* ========================================
+   Promise Section Main (메인 약속하기)
+======================================== */
+.promise_section_main .section_inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.promise_section_main .section_title {
+  font-size: var(--fs-32);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.promise_section_main .promise_tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background: var(--color-forest-green);
+  padding: 15px 0;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.promise_section_main .promise_tab_btn {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+
+.promise_section_main .promise_tab_btn img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.promise_section_main .promise_tab_btn span {
+  font-size: var(--fs-16);
+  white-space: nowrap;
+}
+
+.promise_section_main .promise_tab_btn:hover,
+.promise_section_main .promise_tab_btn.active {
+  background: #1B5B16;
+  color: #fff;
+}
+
+.promise_section_main .promise_tab_btn:hover img,
+.promise_section_main .promise_tab_btn.active img {
+  filter: none;
+}
+
+.promise_section_main .promise_tab_btn.all img {
+  filter: none;
+}
+
+.promise_section_main .promise_items_wrap {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.promise_section_main .promise_items {
+  display: none;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.promise_section_main .promise_items.active {
+  display: flex;
+}
+
+.promise_section_main .promise_items li {
+  flex: 0 0 calc(20% - 12px);
+  min-width: 150px;
+}
+
+.promise_section_main .promise_item_btn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 25px 15px;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.promise_section_main .promise_item_btn:hover {
+  border-color: var(--color-forest-green);
+  box-shadow: 0 4px 12px rgba(35, 134, 28, 0.15);
+  transform: translateY(-2px);
+}
+
+.promise_section_main .promise_item_btn .item_icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promise_section_main .promise_item_btn .item_icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.promise_section_main .promise_item_btn .item_label {
+  font-size: var(--fs-16);
+  color: #333;
+  text-align: center;
+  word-break: keep-all;
+}
+
+/* 약속하기 탭 700px 이하 가로 스크롤 */
+@media (max-width: 700px) {
+  .promise_section_main .promise_tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .promise_section_main .promise_tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+  .promise_section_main .promise_tab_btn {
+    flex-shrink: 0;
+    min-width: 90px;
+  }
+}
+/* 약속하기 팝업 오버레이 */
+#promise_popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+#promise_popup_overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+#promise_popup_overlay .selected_promise_info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: var(--color-neutral-100);
+  border-radius: 8px;
+}
+
+#promise_popup_overlay .selected_promise_info img {
+  width: 50px;
+  height: 50px;
+}
+
+#promise_popup_overlay .selected_promise_info span {
+  font-size: var(--fs-18);
+  font-weight: 600;
+  color: var(--color-forest-green);
 }
 
 /* ========================================
@@ -4941,6 +5158,21 @@ html.gnb2-open #side_btn .btn_hamburger {
   border: 1px solid var(--color-neutral-300);
 }
 
+/* 이미지 없을 때 표시 */
+.banner_archive_section .archive_wrap .archive_item .archive_thumb.no_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-neutral-100);
+}
+
+.banner_archive_section .archive_wrap .archive_item .archive_thumb.no_image::after {
+  content: "이미지가 없습니다.";
+  color: var(--color-neutral-500);
+  font-size: var(--fs-16);
+  text-align: center;
+}
+
 .banner_archive_section .archive_wrap .archive_item .archive_thumb img {
   position: absolute;
   top: 50%;
@@ -5144,7 +5376,9 @@ html.gnb2-open #side_btn .btn_hamburger {
   .banner_archive_section .archive_wrap .archive_header,
   .banner_archive_section .banner_wrap .banner_header,
   .search_section .search_title,
-  .indicator_section .section_title {
+  .indicator_section .section_title,
+  .promise_section_main .section_title,
+  .promise_section_main .promise_tabs {
     margin-bottom: 10px;
   }
   .partners_section,
@@ -5181,6 +5415,36 @@ html.gnb2-open #side_btn .btn_hamburger {
   .search_section .input_wrap .btn_search {
     width: 35px;
     height: 35px;
+  }
+  .promise_section_main .promise_tabs {
+    padding: 0;
+    justify-content: start;
+    padding: 0;
+    gap: 0;
+    border-radius: 5px;
+  }
+  .promise_section_main .promise_tab_btn {
+    width: 0;
+    padding: 5px 0;
+    border-radius: 0;
+  }
+  .promise_section_main .promise_item_btn .item_icon img {
+    width: 40px;
+    height: 40px;
+  }
+  .promise_section_main .promise_item_btn .item_icon {
+    width: auto;
+    height: auto;
+  }
+  .promise_section_main .promise_items {
+    gap: 7px;
+  }
+  .promise_section_main .promise_item_btn {
+    padding: 10px 15px;
+  }
+  .promise_section_main .promise_items li {
+    flex: 0 0 calc(50% - 4px);
+    min-width: 100px;
   }
   .hero_section .hero_text {
     max-width: 500px;
